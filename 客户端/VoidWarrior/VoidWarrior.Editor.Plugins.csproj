@@ -311,7 +311,7 @@
     <None Include="Assets\JsonDotNet\Assemblies\Standalone\Newtonsoft.Json.XML" />
     <None Include="Assets\JsonDotNet\Assemblies\Windows\Newtonsoft.Json.XML" />
     <None Include="Assets\JsonDotNet\link.xml" />
-    <None Include="Assets\Resources\Role\Yurowm\Shaders\SkinShader.shader" />
+    <None Include="Assets\Resources\Prefabs\Role\Yurowm\Shaders\SkinShader.shader" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
     <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />

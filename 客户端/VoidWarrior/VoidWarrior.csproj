@@ -247,10 +247,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Resources\Role\Yurowm\Demo\Scripts\Actions.cs" />
-    <Compile Include="Assets\Resources\Role\Yurowm\Demo\Scripts\CharacterPanel.cs" />
-    <Compile Include="Assets\Resources\Role\Yurowm\Demo\Scripts\CharacterViewer.cs" />
-    <Compile Include="Assets\Resources\Role\Yurowm\Demo\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Resources\Prefabs\Role\Yurowm\Demo\Scripts\Actions.cs" />
+    <Compile Include="Assets\Resources\Prefabs\Role\Yurowm\Demo\Scripts\CharacterPanel.cs" />
+    <Compile Include="Assets\Resources\Prefabs\Role\Yurowm\Demo\Scripts\CharacterViewer.cs" />
+    <Compile Include="Assets\Resources\Prefabs\Role\Yurowm\Demo\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Common\DestroyForTime.cs" />
     <Compile Include="Assets\Scripts\Common\EnumDefine.cs" />
     <Compile Include="Assets\Scripts\Common\UGUISpriteAnimation.cs" />
@@ -313,7 +313,7 @@
     <None Include="Assets\JsonDotNet\Assemblies\Standalone\Newtonsoft.Json.XML" />
     <None Include="Assets\JsonDotNet\Assemblies\Windows\Newtonsoft.Json.XML" />
     <None Include="Assets\JsonDotNet\link.xml" />
-    <None Include="Assets\Resources\Role\Yurowm\Shaders\SkinShader.shader" />
+    <None Include="Assets\Resources\Prefabs\Role\Yurowm\Shaders\SkinShader.shader" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
     <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
