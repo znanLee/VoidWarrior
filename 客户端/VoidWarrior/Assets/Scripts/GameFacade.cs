@@ -182,6 +182,32 @@ public class GameFacade : MonoBehaviour
     {
         uiMng.PushPanel(type);
     }
+
+    /// <summary>
+    /// 关闭UI面板
+    /// </summary>
+    public void ClosePanel()
+    {
+        uiMng.PopPanel();
+    }
+
+    /// <summary>
+    /// 异步消息展示
+    /// </summary>
+    /// <param name="msg">消息内容</param>
+    public void ShowMessageSync(string msg)
+    {
+        uiMng.ShowMessageSync(msg);
+    }
+
+    /// <summary>
+    /// 设置消息窗口
+    /// </summary>
+    /// <param name="msgPanel">MessagePanel消息窗口</param>
+    public void InjectMsgPanel(MessagePanel msgPanel)
+    {
+        uiMng.InjectMsgPanel(msgPanel);
+    }
     #endregion
 
     #region 排名管理器的方法

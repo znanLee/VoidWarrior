@@ -19,6 +19,10 @@
     {
       "panelTypeString": "Game",
       "path": "UI/UIPanel/GamePanel"
+    },
+    {
+      "panelTypeString": "Registe",
+      "path": "UI/UIPanel/RegistePanel"
     }
   ]
 }
