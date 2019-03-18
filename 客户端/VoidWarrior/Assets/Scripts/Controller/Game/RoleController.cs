@@ -102,32 +102,47 @@ public class RoleController : MonoBehaviour
         {
             CameraAutoFollow(); //摄像机自动跟随
             #region 摄像机旋转
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetMouseButton(1))
             {
-                GameFacade.Instance.SetCameraRotate(0);
+                if (Input.GetAxis("Mouse X") > 0) GameFacade.Instance.SetCameraRotate(1);
+                if (Input.GetAxis("Mouse X") < 0) GameFacade.Instance.SetCameraRotate(0);
+                if (Input.GetAxis("Mouse Y") > 0) GameFacade.Instance.SetCameraUpAndDown(1);
+                if (Input.GetAxis("Mouse Y") < 0) GameFacade.Instance.SetCameraUpAndDown(0);
             }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                GameFacade.Instance.SetCameraRotate(1);
-            }
-
-            if (Input.GetKey(KeyCode.W))
-            {
-                GameFacade.Instance.SetCameraUpAndDown(0);
-            }
-            else if (Input.GetKey(KeyCode.S))
-            {
-                GameFacade.Instance.SetCameraUpAndDown(1);
-            }
-
-            if (Input.GetKey(KeyCode.Z))
+            if (Input.GetAxis("Mouse ScrollWheel") > 0)
             {
                 GameFacade.Instance.SetCameraZoom(0);
             }
-            else if (Input.GetKey(KeyCode.X))
+            if (Input.GetAxis("Mouse ScrollWheel") < 0)
             {
                 GameFacade.Instance.SetCameraZoom(1);
             }
+            //if (Input.GetKey(KeyCode.A))
+            //{
+            //    GameFacade.Instance.SetCameraRotate(0);
+            //}
+            //else if (Input.GetKey(KeyCode.D))
+            //{
+            //    GameFacade.Instance.SetCameraRotate(1);
+            //}
+
+            //if (Input.GetKey(KeyCode.W))
+            //{
+            //    GameFacade.Instance.SetCameraUpAndDown(0);
+            //}
+            //else if (Input.GetKey(KeyCode.S))
+            //{
+            //    GameFacade.Instance.SetCameraUpAndDown(1);
+            //}
+
+            //if (Input.GetKey(KeyCode.Z))
+            //{
+            //    GameFacade.Instance.SetCameraZoom(0);
+            //}
+            //else if (Input.GetKey(KeyCode.X))
+            //{
+            //    GameFacade.Instance.SetCameraZoom(1);
+            //}
             #endregion
         }
 
@@ -150,26 +165,45 @@ public class RoleController : MonoBehaviour
                 if (currRoleInfo.IsAlive && !EventSystem.current.IsPointerOverGameObject())
                 {
                     //主角移动
-                    if (Input.GetMouseButtonUp(0))
+                    if (Input.GetKeyDown(KeyCode.A))
                     {
-                        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-                        RaycastHit hitInfo;
-                        if (Physics.Raycast(ray, out hitInfo, 1<<LayerMask.NameToLayer("Ground")))
-                        {
-
-                            //if (hitInfo.collider.name.Equals("Ground", System.StringComparison.currentCultureIgnoreCase))
-                            {
-                                //Debug.Log(EventSystem.current.IsPointerOverGameObject());
-                                // mNMA.SetDestination(hitInfo.point);
-                                //寻找到射线与地面碰撞的位置，更改移动信息
-                                MoveTo(hitInfo.point);
-                            }
-                        }
+                        transform.Rotate(new Vector3(0, 90, 0));
                     }
+                    if (Input.GetKeyDown(KeyCode.D))
+                    {
+                        transform.Rotate(new Vector3(0, -90, 0));
+                    }
+                    if (Input.GetKeyDown(KeyCode.D))
+                    {
+                        transform.Rotate(new Vector3(0, 180, 0));
+                    }
+                    if (Input.GetKey(KeyCode.W) ||
+                        Input.GetKey(KeyCode.A) ||
+                        Input.GetKey(KeyCode.S) ||
+                        Input.GetKey(KeyCode.D))
+                    {
+                        MoveTo(agent.transform.position+transform.forward*10);
+                    }
+                    //if (Input.GetMouseButtonUp(0))
+                    //{
+                    //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                    //    RaycastHit hitInfo;
+                    //    if (Physics.Raycast(ray, out hitInfo, 1<<LayerMask.NameToLayer("Ground")))
+                    //    {
+
+                    //        //if (hitInfo.collider.name.Equals("Ground", System.StringComparison.currentCultureIgnoreCase))
+                    //        {
+                    //            //Debug.Log(EventSystem.current.IsPointerOverGameObject());
+                    //            // mNMA.SetDestination(hitInfo.point);
+                    //            //寻找到射线与地面碰撞的位置，更改移动信息
+                    //            MoveTo(hitInfo.point);
+                    //        }
+                    //    }
+                    //}
 
                     //主角攻击
-                    if (Input.GetMouseButtonUp(1))
+                    if (Input.GetMouseButtonUp(0))
                     {
                         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                         RaycastHit hitInfo;
