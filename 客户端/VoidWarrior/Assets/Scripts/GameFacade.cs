@@ -298,27 +298,32 @@ public class GameFacade : MonoBehaviour
     /// 摄像机左右旋转
     /// </summary>
     /// <param name="type">旋转方式，0=左旋 1=右旋</param>
-    public void SetCameraRotate(int type)
+    public void SetCameraRotate(float speed)
     {
-        cameraCtr.SetCameraRotate(type);
+        cameraCtr.SetCameraRotate(speed);
     }
 
     /// <summary>
     /// 摄像机上下旋转
     /// </summary>
     /// <param name="type">0=上旋 1=下旋</param>
-    public void SetCameraUpAndDown(int type)
+    public void SetCameraUpAndDown(float speed)
     {
-        cameraCtr.SetCameraUpAndDown(type);
+        cameraCtr.SetCameraUpAndDown(speed);
     }
 
     /// <summary>
     /// 摄像机缩放
     /// </summary>
     /// <param name="type">0=拉近 1=拉远</param>
-    public void SetCameraZoom(int type)
+    public void SetCameraZoom(float speed)
     {
-        cameraCtr.SetCameraZoom(type);
+        cameraCtr.SetCameraZoom(speed);
+    }
+
+    public Vector3 GetCameraForward()
+    {
+        return cameraCtr.GetCameraForward();
     }
     #endregion
 

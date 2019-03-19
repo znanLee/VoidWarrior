@@ -104,45 +104,13 @@ public class RoleController : MonoBehaviour
             #region 摄像机旋转
             if (Input.GetMouseButton(1))
             {
-                if (Input.GetAxis("Mouse X") > 0) GameFacade.Instance.SetCameraRotate(1);
-                if (Input.GetAxis("Mouse X") < 0) GameFacade.Instance.SetCameraRotate(0);
-                if (Input.GetAxis("Mouse Y") > 0) GameFacade.Instance.SetCameraUpAndDown(1);
-                if (Input.GetAxis("Mouse Y") < 0) GameFacade.Instance.SetCameraUpAndDown(0);
+                if (Input.GetAxis("Mouse X") != 0) GameFacade.Instance.SetCameraRotate(Input.GetAxis("Mouse X"));
+                if (Input.GetAxis("Mouse Y") != 0) GameFacade.Instance.SetCameraUpAndDown(Input.GetAxis("Mouse Y"));
             }
-            if (Input.GetAxis("Mouse ScrollWheel") > 0)
+            if (Input.GetAxis("Mouse ScrollWheel") != 0)
             {
-                GameFacade.Instance.SetCameraZoom(0);
+                GameFacade.Instance.SetCameraZoom(Input.GetAxis("Mouse ScrollWheel"));
             }
-            if (Input.GetAxis("Mouse ScrollWheel") < 0)
-            {
-                GameFacade.Instance.SetCameraZoom(1);
-            }
-            //if (Input.GetKey(KeyCode.A))
-            //{
-            //    GameFacade.Instance.SetCameraRotate(0);
-            //}
-            //else if (Input.GetKey(KeyCode.D))
-            //{
-            //    GameFacade.Instance.SetCameraRotate(1);
-            //}
-
-            //if (Input.GetKey(KeyCode.W))
-            //{
-            //    GameFacade.Instance.SetCameraUpAndDown(0);
-            //}
-            //else if (Input.GetKey(KeyCode.S))
-            //{
-            //    GameFacade.Instance.SetCameraUpAndDown(1);
-            //}
-
-            //if (Input.GetKey(KeyCode.Z))
-            //{
-            //    GameFacade.Instance.SetCameraZoom(0);
-            //}
-            //else if (Input.GetKey(KeyCode.X))
-            //{
-            //    GameFacade.Instance.SetCameraZoom(1);
-            //}
             #endregion
         }
 
@@ -167,13 +135,14 @@ public class RoleController : MonoBehaviour
                     //主角移动
                     if (Input.GetKeyDown(KeyCode.A))
                     {
-                        transform.Rotate(new Vector3(0, 90, 0));
-                    }
-                    if (Input.GetKeyDown(KeyCode.D))
-                    {
                         transform.Rotate(new Vector3(0, -90, 0));
                     }
                     if (Input.GetKeyDown(KeyCode.D))
+                    {
+                        GameFacade.Instance.SetCameraRotate(90);
+                        transform.Rotate(new Vector3(0, 90, 0));
+                    }
+                    if (Input.GetKeyDown(KeyCode.S))
                     {
                         transform.Rotate(new Vector3(0, 180, 0));
                     }
@@ -182,7 +151,8 @@ public class RoleController : MonoBehaviour
                         Input.GetKey(KeyCode.S) ||
                         Input.GetKey(KeyCode.D))
                     {
-                        MoveTo(agent.transform.position+transform.forward*10);
+                        Debug.Log("CameraForward" + GameFacade.Instance.GetCameraForward());
+                        MoveTo(agent.transform.position+GameFacade.Instance.GetCameraForward()*10);
                     }
                     //if (Input.GetMouseButtonUp(0))
                     //{
