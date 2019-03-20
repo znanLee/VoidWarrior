@@ -321,9 +321,22 @@ public class GameFacade : MonoBehaviour
         cameraCtr.SetCameraZoom(speed);
     }
 
+    /// <summary>
+    /// 获取摄像机的z轴方向
+    /// </summary>
+    /// <returns>摄像机的z轴方向</returns>
     public Vector3 GetCameraForward()
     {
         return cameraCtr.GetCameraForward();
+    }
+
+    /// <summary>
+    /// 获取摄像机的x轴方向
+    /// </summary>
+    /// <returns>摄像机的x轴方向</returns>
+    public Vector3 GetCameraRight()
+    {
+        return cameraCtr.GetCameraRight();
     }
     #endregion
 

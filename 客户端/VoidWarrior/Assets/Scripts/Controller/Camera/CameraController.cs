@@ -172,7 +172,7 @@ public class CameraController : MonoBehaviour
     /// <param name="type">0=左旋 1=右旋</param> (type == 0 ? 1 : -1)
     public void SetCameraRotate(float speed)
     {
-        transform.Rotate(0, speed * 40 * Time.deltaTime, 0);
+        transform.Rotate(0, speed * 80 * Time.deltaTime, 0);
     }
 
     /// <summary>
@@ -181,7 +181,7 @@ public class CameraController : MonoBehaviour
     /// <param name="type">0=上旋 1=下旋</param>
     public void SetCameraUpAndDown(float speed)
     {
-        m_CameraUpAndDown.Rotate(0, 0, speed * 40 * Time.deltaTime);
+        m_CameraUpAndDown.Rotate(0, 0, speed * 80 * Time.deltaTime);
         m_CameraUpAndDown.localEulerAngles = new Vector3(0, 0, Mathf.Clamp(m_CameraUpAndDown.localEulerAngles.z, 35f, 80f));
     }
 
@@ -195,9 +195,22 @@ public class CameraController : MonoBehaviour
         m_CameraZoom.localPosition = new Vector3(0, 0, Mathf.Clamp(m_CameraZoom.localPosition.z, -50f, -25f));
     }
 
+    /// <summary>
+    /// 获取摄像机的z轴方向
+    /// </summary>
+    /// <returns>摄像机的z轴方向</returns>
     public Vector3 GetCameraForward()
     {
-        return transform.forward+transform.right;
+        return transform.forward;
+    }
+
+    /// <summary>
+    /// 获取摄像机的x轴方向
+    /// </summary>
+    /// <returns>摄像机的x轴方向</returns>
+    public Vector3 GetCameraRight()
+    {
+        return transform.right;
     }
     #endregion
 }
